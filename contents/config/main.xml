@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0 http://www.kde.org/standards/kcfg/1.0/kcfg.xsd">
+  <kcfgfile name=""/>
+  <group name="General">
+    <entry name="refreshSeconds" type="Int"><default>180</default></entry>
+    <entry name="ghPath" type="String"><default></default></entry>
+    <entry name="reviewRequests" type="Bool"><default>true</default></entry>
+    <entry name="lookbackDays" type="Int"><default>7</default></entry>
+    <entry name="themeMode" type="String"><default>system</default></entry>
+    <entry name="desktopOpacity" type="Int"><default>85</default></entry>
+    <entry name="badgeMode" type="String"><default>open</default></entry>
+    <entry name="pin" type="Bool"><default>false</default></entry>
+    <entry name="filterRole" type="String"><default>all</default></entry>
+    <entry name="filterStatus" type="String"><default>active</default></entry>
+    <entry name="filterCi" type="String"><default>any</default></entry>
+    <entry name="filterRepo" type="String"><default></default></entry>
+    <entry name="filterAuthor" type="String"><default></default></entry>
+  </group>
+</kcfg>

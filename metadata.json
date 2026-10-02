@@ -1,0 +1,16 @@
+{
+  "KPackageStructure": "Plasma/Applet",
+  "KPlugin": {
+    "Authors": [{"Name": "Hongze Xia"}],
+    "Category": "Online Services",
+    "Description": "GitHub pull requests assigned to you, opened by you, or awaiting your review, via the gh CLI",
+    "Icon": "vcs-merge-request",
+    "Id": "io.github.xiahongze.prpulse",
+    "License": "MIT",
+    "Name": "PR Pulse",
+    "Version": "0.1.0",
+    "Website": "https://github.com/xiahongze/pr-pulse"
+  },
+  "X-Plasma-API-Minimum-Version": "6.0",
+  "X-Plasma-MainScript": "ui/main.qml"
+}

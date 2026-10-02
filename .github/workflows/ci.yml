@@ -1,0 +1,23 @@
+name: CI
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python -m unittest discover -s tests -v
+      - run: python -m compileall -q src tests
+      - name: Validate metadata
+        run: python -c 'import json; json.load(open("metadata.json"))'
+      - name: Build plasmoid
+        run: ./scripts/package.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pr-pulse-plasmoid
+          path: dist/pr-pulse.plasmoid
