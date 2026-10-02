@@ -4,8 +4,11 @@ A native Plasma 6 widget for the GitHub pull requests that need you: the ones **
 
 ![Plasma 6](https://img.shields.io/badge/Plasma-6-1d99f3) ![Python 3](https://img.shields.io/badge/Python-3.11%2B-3776ab) ![gh CLI](https://img.shields.io/badge/gh-CLI-24292f) ![License](https://img.shields.io/badge/license-MIT-22c55e)
 
-![PR Pulse in the dark theme with synthetic pull requests](docs/screenshots/pr-pulse-dark.png)
-![PR Pulse in the light theme with synthetic pull requests](docs/screenshots/pr-pulse-light.png)
+| Dark | Light |
+| --- | --- |
+| ![PR Pulse in the dark theme with synthetic pull requests](docs/screenshots/pr-pulse-dark.png) | ![PR Pulse in the light theme with synthetic pull requests](docs/screenshots/pr-pulse-light.png) |
+
+<sub>Screenshots use synthetic fixture data from `tests/fixtures`.</sub>
 
 ## What it shows
 

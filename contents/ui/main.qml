@@ -56,8 +56,8 @@ PlasmoidItem {
     toolTipSubText: error && !prs.length ? errorTitle(error) : i18n("%1 open · %2 need attention · %3 failing CI", activeCount, attention.length, counts.ci_failing || 0)
     // The desktop supplies its own translucent surface below; panel popups keep native Plasma chrome.
     Plasmoid.backgroundHints: isDesktop ? PlasmaCore.Types.NoBackground : PlasmaCore.Types.DefaultBackground
-    switchWidth: isDesktop ? -1 : 380
-    switchHeight: isDesktop ? -1 : 420
+    switchWidth: isDesktop ? -1 : Kirigami.Units.gridUnit * 20
+    switchHeight: isDesktop ? -1 : Kirigami.Units.gridUnit * 20
     preferredRepresentation: isDesktop ? fullRepresentation : null
     hideOnWindowDeactivate: !Plasmoid.configuration.pin
 
@@ -94,10 +94,10 @@ PlasmoidItem {
 
     fullRepresentation: Rectangle {
         id: panel
-        Layout.minimumWidth: 420
-        Layout.minimumHeight: 420
-        Layout.preferredWidth: 500
-        Layout.preferredHeight: 640
+        Layout.minimumWidth: Kirigami.Units.gridUnit * 26
+        Layout.minimumHeight: Kirigami.Units.gridUnit * 24
+        Layout.preferredWidth: Kirigami.Units.gridUnit * 36
+        Layout.preferredHeight: Kirigami.Units.gridUnit * 40
         radius: root.isDesktop ? 14 : 0
         color: root.isDesktop
             ? Qt.alpha(root.colors.surface, Math.max(10, Plasmoid.configuration.desktopOpacity) / 100)
