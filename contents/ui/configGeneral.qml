@@ -29,11 +29,11 @@ Kirigami.FormLayout {
     property string cfg_filterCi
     property string cfg_filterRepo
     property string cfg_filterAuthor
-    property string cfg_filterRoleDefault
-    property string cfg_filterStatusDefault
-    property string cfg_filterCiDefault
-    property string cfg_filterRepoDefault
-    property string cfg_filterAuthorDefault
+    property string cfg_filterRoleDefault: "all"
+    property string cfg_filterStatusDefault: "active"
+    property string cfg_filterCiDefault: "any"
+    property string cfg_filterRepoDefault: ""
+    property string cfg_filterAuthorDefault: ""
 
     RowLayout {
         Kirigami.FormData.label: i18n("gh executable:")

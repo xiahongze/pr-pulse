@@ -42,6 +42,7 @@ PlasmoidItem {
     readonly property var counts: snapshot.counts || ({})
     readonly property int activeCount: (counts.open || 0) + (counts.draft || 0)
     readonly property var attention: prs.filter(needsAttention)
+    readonly property int badgeCount: Plasmoid.configuration.badgeMode === "attention" ? attention.length : Plasmoid.configuration.badgeMode === "open" ? activeCount : 0
     readonly property var filtered: prs.filter(matches)
     readonly property var repoOptions: optionList(i18n("All repos"), prs.map(pr => pr.repo))
     readonly property var authorOptions: optionList(i18n("All authors"), prs.map(pr => pr.author))
@@ -67,26 +68,26 @@ PlasmoidItem {
 
     compactRepresentation: Item {
         id: compact
-        readonly property int badgeCount: Plasmoid.configuration.badgeMode === "attention" ? root.attention.length : Plasmoid.configuration.badgeMode === "open" ? root.activeCount : 0
         implicitWidth: Kirigami.Units.iconSizes.medium
         implicitHeight: implicitWidth
         Octicon {
             anchors.centerIn: parent
             size: Math.min(parent.width, parent.height) * 0.78
-            name: root.attention.length > 0 && (root.counts.ci_failing || 0) > 0 ? "git-pull-request-closed" : "git-pull-request"
+            name: "git-pull-request"
             color: root.error && !root.prs.length ? Kirigami.Theme.disabledTextColor
                 : (root.counts.ci_failing || 0) > 0 ? (root.dark ? "#f85149" : "#d1242f")
                 : compactMouse.containsMouse ? Kirigami.Theme.highlightColor : Kirigami.Theme.textColor
         }
         Rectangle {
-            visible: compact.badgeCount > 0
+            // Opacity rather than visible: in the compact wrapper a visible binding here did not re-evaluate on Plasma 6.7.
+            opacity: root.badgeCount > 0 ? 1 : 0
             anchors.right: parent.right
             anchors.top: parent.top
             height: Math.max(14, parent.height * 0.45)
             width: Math.max(height, badgeText.implicitWidth + 6)
             radius: height / 2
             color: root.attention.length > 0 ? (root.dark ? "#da3633" : "#cf222e") : (root.dark ? "#238636" : "#1f883d")
-            Controls.Label { id: badgeText; anchors.centerIn: parent; text: compact.badgeCount > 99 ? "99+" : compact.badgeCount; color: "white"; font.pixelSize: parent.height * 0.68; font.bold: true }
+            Controls.Label { id: badgeText; anchors.centerIn: parent; text: root.badgeCount > 99 ? "99+" : root.badgeCount; color: "white"; font.pixelSize: parent.height * 0.68; font.bold: true }
         }
         MouseArea { id: compactMouse; anchors.fill: parent; hoverEnabled: true; onClicked: root.expanded = !root.expanded }
     }
